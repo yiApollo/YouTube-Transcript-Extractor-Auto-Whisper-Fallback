@@ -50,4 +50,10 @@ Paste a video or playlist link and follow the prompts.
 * `skipped.log`: videos with no transcription
 * `video_files/`: temporary files used by Whisper
 
+---
+
+# ⚡ Powerful Usage: Automate Uploads & Summarize Entire Playlists
+
+Use with [Telegram to YouTube Uploader](https://github.com/yiApollo/telegram-to-youtube-uploader/blob/main/README.md)
+to summarize your content.
 
