@@ -8,6 +8,7 @@ from tqdm import tqdm
 from dotenv import load_dotenv
 from urllib.parse import parse_qs, urlparse
 from youtube_transcript_api import YouTubeTranscriptApi, TranscriptsDisabled, NoTranscriptFound, CouldNotRetrieveTranscript
+from deep_translator import GoogleTranslator
 
 load_dotenv()
 
@@ -119,7 +120,7 @@ def generate_transcript_placeholder(video_id, title):
         choice = 'y'
 
     if choice in ['', 'y', 'yes', 'sim'] or generate_transcript_placeholder.always_use_whisper:
-        print("Which language is the video spoken in? (e.g., 'pt', 'en', press Enter to auto-detect): ", end='')
+        print("Which language is the video spoken in? (e.g., 'pt', 'en', press Enter to use the original language): ", end='')
         language = input().strip().replace('-', '_').lower() or None
         return generate_transcript_with_whisper(video_id, title, language)
     return "Transcript not available for this video."
@@ -171,8 +172,19 @@ def process_playlist(url):
             filename = sanitize_filename(filename)
             save_markdown(indexed_title, content, os.path.join(INDIVIDUAL_FOLDER, filename))
 
+            # Translate content
+            if global_target_lang:
+                try:
+                    translated = GoogleTranslator(source='auto', target=global_target_lang).translate(text=content)
+                    # Replace original content with translated content
+                    translated_title = f"{indexed_title} ({global_target_lang})"
+                    save_markdown(translated_title, translated, os.path.join(INDIVIDUAL_FOLDER, filename))
+                except Exception as e:
+                    print(f"⚠️ Failed to translate transcript for {title}: {e}")
+
 if __name__ == "__main__":
+    print("Which language do you want the final transcript translated to? (e.g., 'en', 'pt', etc.) or press Enter to use the original language: ", end='')
+    global_target_lang = input().strip().lower()
     url = input("Enter the YouTube playlist or video URL: ")
     process_playlist(url)
     print("\u2705 Transcripts saved successfully.")
-
