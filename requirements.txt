@@ -1,0 +1,8 @@
+pytube
+youtube_transcript_api
+tqdm
+python-dotenv
+requests
+openai-whisper
+yt-dlp
+
