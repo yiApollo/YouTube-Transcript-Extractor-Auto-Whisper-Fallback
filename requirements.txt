@@ -1,8 +1,7 @@
-pytube
-youtube_transcript_api
+whisper
+yt-dlp
 tqdm
 python-dotenv
 requests
-openai-whisper
-yt-dlp
-
+youtube-transcript-api
+deep-translator
