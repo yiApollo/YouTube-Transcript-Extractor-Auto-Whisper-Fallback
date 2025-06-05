@@ -50,5 +50,4 @@ Paste a video or playlist link and follow the prompts.
 * `skipped.log`: videos with no transcription
 * `video_files/`: temporary files used by Whisper
 
-```
 
