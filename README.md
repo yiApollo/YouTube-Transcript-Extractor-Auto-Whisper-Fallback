@@ -56,6 +56,9 @@ It is possible to **translate transcripts into any language**!
 During execution, you will be prompted to choose a target language (e.g., `en`, `pt`, `es`, etc.).  
 Press Enter to keep the video's transcript in the original language.
 
+## 📜 License
+MIT — feel free to use, modify, and share.
+
 ---
 
 # ⚡ Powerful Usage: Automate Uploads & Summarize Entire Playlists
