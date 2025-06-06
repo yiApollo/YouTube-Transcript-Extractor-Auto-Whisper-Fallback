@@ -5,6 +5,12 @@ Automatically extract transcripts from YouTube videos or playlists. Uses officia
 
 Extract transcripts from YouTube videos or playlists in Markdown format, with automatic fallback to Whisper AI when subtitles are unavailable.
 
+---
+
+![MIT License](https://img.shields.io/badge/license-MIT-green)
+![Python](https://img.shields.io/badge/python-3.10+-blue)
+
+
 ## 🚀 Features
 - Supports YouTube video or playlist URLs
 - Uses YouTube's public API for native subtitles
